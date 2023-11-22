@@ -1,17 +1,17 @@
 import React from 'react';
-import clasess from './profile.module.css';
+import classes from './profile.module.css';
 import MyPosts from './my_post/post/MyPosts';
+import ProfileInfo from './profile_info/profile_info';
 
-const Profile = () => {
+const Profile = (props) => {
+
     return (
         <div>
-            <div>
-                <img src='https://images.unsplash.com/photo-1664853811022-33e391e36169?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&w=1000&q=80'></img>
-            </div>
-            <div>
-                ava + discription
-            </div>
-            <MyPosts />
+            <ProfileInfo />
+            <MyPosts posts={props.profilePage.posts}
+                addPost={props.addPost}
+                newPostText={props.profilePage.newPostText} 
+                updateNewPostText = {props.updateNewPostText}/>
         </div>
     );
 }
